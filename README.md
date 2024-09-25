@@ -1,3 +1,54 @@
+# Welcome anon! I will take you through my thought process if you care!
+
+## The Challenge at Hand:
+![Alt text](image.jpg "Optional title")
+
+
+The objective is deceptively simple: prove to a server that i know a specific password without actually revealing the password itself. This challenge, implemented as a Rust server listening on localhost:5555, requires me to craft a client(One of the many ways i could solve this btw) that could successfully navigate the ZKP protocol and retrieve a flag as proof of completion.
+
+"Maybe the very first mistake you made was using python" ( python slander ) - Someone not helping. I will switch to Rust once this works
+
+## Key Components of the Challenge:
+
+- Server: A Rust implementation listening on localhost:5555
+
+- Client: Attempted in Python
+
+- Protocol: Based on the Schnorr identification scheme(FROM WHAT I GOOGLED), a type of zero-knowledge proof
+
+- Constants:
+  G (Generator): 5
+  P (Prime): 65521
+  Password: "ProofOfKnowledge"
+
+## The Zero-Knowledge Proof Protocol:
+The challenge implemented a variant of the Schnorr identification scheme, a well-known ZKP protocol. 
+
+# Here's a breakdown of the expected interaction:
+- Client connects to the server.
+- Server sends its public key.
+- For each authentication attempt: 
+
+ a. Client generates a random number r and computes y = G^r mod P.
+ b. Client sends y to the server.
+ c. Server responds with a random challenge.
+ d. Client computes the response: (r + password_num challenge) mod P, where password_num is derived from the SHA256 hash of the password.
+ e. Server verifies the response and either accepts or rejects the proof.
+
+## Now, which of these steps have i implemented?
+EVERY STEP EXCEPT THE SERVER HAS REJECTED MY PROOF! WELP!
+
+
+
+
+
+
+
+
+
+
+
+
 ## Installing rust
 
 - Assuming you're on Unix system, i.e Linux or MacOS and don't have Rust installed, install Rust with the following: 
