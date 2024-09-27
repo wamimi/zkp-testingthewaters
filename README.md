@@ -1,4 +1,4 @@
-# Welcome anon! I will take you through my thought process if you care!
+# Welcome anon! I will take you through my thought process 
 
 ## The Challenge at Hand:
 ![Alt text](image.jpg "Optional title")
@@ -12,7 +12,7 @@ The objective is deceptively simple: prove to a server that i know a specific pa
 
 - Server: A Rust implementation listening on localhost:5555
 
-- Client: Attempted in Python
+- Client: Attempted in Python and Bash. Find the bash implementation in the bash.sh
 
 - Protocol: Based on the Schnorr identification scheme(FROM WHAT I GOOGLED), a type of zero-knowledge proof
 
@@ -30,10 +30,15 @@ The challenge implemented a variant of the Schnorr identification scheme, a well
 - For each authentication attempt: 
 
  a. Client generates a random number r and computes y = G^r mod P.
+
  b. Client sends y to the server.
+
  c. Server responds with a random challenge.
+
  d. Client computes the response: (r + password_num challenge) mod P, where password_num is derived from the SHA256 hash of the password.
+
  e. Server verifies the response and either accepts or rejects the proof.
+ 
 
 ## Now, which of these steps have i implemented?
 EVERY STEP EXCEPT THE SERVER HAS REJECTED MY PROOF! WELP!
